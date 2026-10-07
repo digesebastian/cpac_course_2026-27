@@ -9,8 +9,25 @@ class Simple_Next(Composition):
         Composition.__init__(self,BPM=BPM)
             
     def next(self):
-        pass
         #your code here
+        if self.id == ID_START:
+            self.id = 0
+            self.midinote = 60
+            self.dur = 0.05
+            self.amp = 0.5
+            self.BPM = 120
+        elif self.id == 0:
+            self.midinote += 1
+            self.amp += 0.05
+            if self.midinote >= 84:
+                self.id = 1
+        elif self.id == 1:
+            self.midinote -= 1
+            self.amp -= 0.05
+            if self.midinote <= 60:
+                self.id = 0
+
+
 
 if __name__=="__main__":
     n_agents=1

@@ -22,7 +22,7 @@ filename_out=os.path.join(DATA_DIR, "tire_disco.wav") #
 
 SR=16000
 #your code here
-y, sr = ...
+y, sr = load(filename_in, sr=SR)
 # %% 2) Find the beats
 beats=your_code.compute_beats(y, sr=SR)
 
@@ -37,7 +37,7 @@ plt.legend()
 plt.show()
 # %% 3) Load a heavy kick
 # your code here
-kick, sr = ...
+kick, sr = load(filename_kick, sr=SR)
 # %% 4 ) Put the kick on song at the correct beats
 
 y_out = your_code.add_samples(y, kick, beats)
